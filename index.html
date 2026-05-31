@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Raashi ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ffb6c1,#ffe4e1,#fff0f5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    text-align:center;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.15);
+    z-index:10;
+}
+
+h1{
+    color:#d63384;
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+p{
+    color:#6f1d57;
+    font-size:1.2rem;
+    margin-bottom:25px;
+    max-width:600px;
+}
+
+button{
+    padding:14px 28px;
+    border:none;
+    border-radius:50px;
+    background:#ff4d6d;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:#e63956;
+}
+
+.message{
+    margin-top:25px;
+    font-size:1.3rem;
+    color:#b5179e;
+    min-height:40px;
+}
+
+.flower{
+    position:absolute;
+    font-size:30px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px) rotate(0deg);
+    }
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+
+.heart{
+    position:absolute;
+    color:#ff3366;
+    animation:float 6s linear forwards;
+    font-size:24px;
+}
+
+@keyframes float{
+    0%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+    100%{
+        opacity:0;
+        transform:translateY(-300px) scale(2);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1> 💗  For Raashi  💗 </h1>
+
+    <p>
+         yaar if smth i said actually hurt you toh i m genuinely sry baki i cant be performamtive cuz i act whole day of different personalities i cant act in front of you too cuz i like you too much baki you can tell if there any other reasons or teri kasam i would respect that byeeee  ❤️
+    </p>
+
+    <button onclick="showMessage()">
+        Click Me 🌸
+    </button>
+
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+const messages = [
+"Raashi, every notification makes me hope it's you  💗 ",
+"You're prettier than every flower on this page  💗 ",
+"Even the stars would get jealous of your smile  💗 ",
+"Maybe reply?  💗 ",
+"Raashi, you make ordinary days feel special  💗 "
+];
+
+function showMessage(){
+    const msg = messages[Math.floor(Math.random()*messages.length)];
+    document.getElementById("message").innerHTML = msg;
+
+    for(let i=0;i<15;i++){
+        createHeart();
+    }
+}
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random()*window.innerWidth + "px";
+    heart.style.top = (window.innerHeight-100) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+function createFlower(){
+    const flower = document.createElement("div");
+    flower.classList.add("flower");
+
+    const flowers = ["🌹","🌸","🌺","🌷","💐"];
+    flower.innerHTML =
+        flowers[Math.floor(Math.random()*flowers.length)];
+
+    flower.style.left = Math.random()*window.innerWidth + "px";
+    flower.style.animationDuration =
+        (5 + Math.random()*5) + "s";
+
+    document.body.appendChild(flower);
+
+    setTimeout(()=>{
+        flower.remove();
+    },10000);
+}
+
+setInterval(createFlower,500);
+</script>
+
+</body>
+</html>
